@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Sales Report</title></head>
+<body>
+    <h1>Daily Sales Report</h1>
+    <table border="1">
+        <tr>
+            <th>Date</th><th>Product</th><th>Qty</th><th>Total</th>
+        </tr>
+        <tr th:each="t : ${transactions}">
+            <td th:text="${t.saleDate}">Date</td>
+            <td th:text="${t.productName}">Product</td>
+            <td th:text="${t.quantitySold}">Qty</td>
+            <td th:text="${t.totalAmount}">Total</td>
+        </tr>
+    </table>
+    <h2>Grand Total Revenue: $<span th:text="${totalRevenue}">0.00</span></h2>
+    <a href="/">Back to Inventory</a>
+</body>
+</html>

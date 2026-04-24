@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Supermarket</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<nav>Supermarket Management System</nav>
+
+<div class="container">
+<div class="card">
+
+<h2>Product List</h2>
+
+<a href="/add" class="btn">+ Add Product</a>
+<a href="/bill" class="btn">Billing</a>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th>Action</th>
+</tr>
+
+<tr th:each="p : ${products}">
+    <td th:text="${p.productId}"></td>
+    <td th:text="${p.name}"></td>
+    <td th:text="${p.price}"></td>
+    <td th:text="${p.stockQuantity}"></td>
+    <td>
+        <a th:href="@{'/delete/' + ${p.productId}}" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+</body>
+</html>
